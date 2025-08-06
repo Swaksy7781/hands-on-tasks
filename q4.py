@@ -6,23 +6,28 @@ import os
 
 def list_txt_files():
 
-    current_directory = os.getcwd()
-    print(f"Current Directory: {current_directory}")
+    try:
+        current_directory = os.getcwd()
+        print(f"Current Directory: {current_directory}")
 
-    files = os.listdir(current_directory)
-    txt_files = []
-    for file in files:
-        if file.endswith('.txt'):
-            txt_files.append(file)
+        files = os.listdir(current_directory)
+        txt_files = []
+        for file in files:
+            if file.endswith('.txt'):
+                txt_files.append(file)
 
-    print("Text files in the current directory:")
-    for txt_file in txt_files:
-        print(txt_file)
+        if txt_files:
+            print("Text files in the current directory:")
+            for txt_file in txt_files:
+                print(txt_file)
+        else:
+            print("No .txt files found in the current directory.")
 
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
 
 def main():
     list_txt_files()
 
 if __name__ == "__main__":
     main()
-
