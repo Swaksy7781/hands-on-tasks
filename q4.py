@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+
+"""Q4: Loop Through Files and Filter by Extension Task: List only .txt files in the current directory."""
+
+import os
+
+def list_txt_files():
+
+    current_directory = os.getcwd()
+    print(f"Current Directory: {current_directory}")
+
+    files = os.listdir(current_directory)
+    txt_files = []
+    for file in files:
+        if file.endswith('.txt'):
+            txt_files.append(file)
+
+    print("Text files in the current directory:")
+    for txt_file in txt_files:
+        print(txt_file)
+
+
+def main():
+    list_txt_files()
+
+if __name__ == "__main__":
+    main()
+
