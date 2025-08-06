@@ -1,0 +1,6 @@
+SUMMARY OF FILES
+--------------------------------------------------
+Filename: sample.txt
+Line count (excluding comments): 5
+Word count (excluding comments): 35
+--------------------------------------------------

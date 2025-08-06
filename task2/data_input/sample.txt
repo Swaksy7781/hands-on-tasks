@@ -1,0 +1,6 @@
+This is a sample file for testing.
+This is a temp line. It should be replaced.
+Another line of text with no temp word.
+This is the final temp line of the file.
+# Another comment line to be ignored.
+Final line.
