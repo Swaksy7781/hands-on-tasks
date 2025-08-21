@@ -40,7 +40,7 @@ resource "aws_instance" "creating_ec2" {
 
     ami = var.instance_ami
     instance_type = var.instance_type
-    key_name = "saurabh"
+    key_name = var.key_name
 
     vpc_security_group_ids = [aws_security_group.creating_security_group.id]
 
