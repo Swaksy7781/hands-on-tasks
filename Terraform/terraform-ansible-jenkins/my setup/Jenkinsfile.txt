@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'Maven'
+    }
+
+    environment {
+        INVENTORY = 'inventory.ini'
+        DEPLOY_PLAYBOOK = 'deploy_jar.yml'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'master', credentialsId: 'SAURABH_GITHUB_TOKEN', url: 'https://github.com/Swaksy7781/springboot_app.git'
+            }
+        }
+
+        stage('Build with Maven') {
+            steps {
+                sh 'mvn clean package -DskipTests'
+            }
+        }
+
+        stage('Deploy to App Server') {
+            steps {
+                withCredentials([sshUserPrivateKey(credentialsId: 'saurabh-wakase', keyFileVariable: 'KEY')]) {
+                    sh """
+                    ansible-playbook -i ${INVENTORY} ${DEPLOY_PLAYBOOK} --private-key "\$KEY" -u ubuntu
+                    """
+                }
+            }
+        }
+    }
+}

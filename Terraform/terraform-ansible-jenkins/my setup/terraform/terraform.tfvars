@@ -1,0 +1,7 @@
+aws_region = "eu-north-1"
+project_name = "Saurabh-EC2"
+ami_id        = "ami-042b4708b1d05f512"
+instance_type = "t3.micro"
+key_name      = "saurabh-wakase"
+subnet_id = "subnet-04754f9c53dfd714a"
+security_group_id = "sg-015f024511b4e365d"

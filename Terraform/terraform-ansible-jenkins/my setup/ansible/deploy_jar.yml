@@ -1,0 +1,15 @@
+---
+- name: Deploy Spring Boot JAR to App Server
+  hosts: app_servers
+  become: yes
+
+  tasks:
+    - name: Copy JAR file to app server
+      copy:
+        src: target/saurabh_wakase_springboot_1-1.0.0.jar
+        dest: /home/ubuntu/saurabh_wakase_springboot_1-1.0.0.jar
+        mode: '0755'
+
+    - name: Run Spring Boot app
+      shell: |
+        nohup java -jar /home/ubuntu/saurabh_wakase_springboot_1-1.0.0.jar > /home/ubuntu/app.log 2>&1 &
